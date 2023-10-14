@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="./assets/image/icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="codigo.css">
+	<script src="./codigo.js"></script>
+	<title>Akatsuki game</title>
+</head>
+<body></body>
+	
+	<section id="select_player">
+
+		<h1 class="title"></h1>
+
+		<h2 class="subtitle">Elige tu personaje</h2>
+		<br><br>
+
+		<div class="player">
+			<input type="radio" name="mascota" id="deidara" onclick="deidaraVoice.play()">
+			<label class="mascota" for="deidara">
+					<img src="./assets/image/deidara.png" alt="">
+					<p>Deidara</p>
+			</label> <br>
+
+	
+			<input type="radio" name="mascota" id="pain" onclick="painVoice.play()">
+			<label class="mascota" for="pain">
+					<img src="./assets/image/pain.png" alt="Pain" >
+					<p>Pain</p>
+			</label> <br>
+	
+			<input type="radio" name="mascota" id="konan" onclick="konanVoice.play()">
+			<label class="mascota" for="konan">
+					<img src="./assets/image/konan.png" alt="">
+					<p>Konan</p>
+			</label> 
+			<br>
+			
+			<input type="radio" name="mascota" id="itachi" onclick="itachiVoice.play()">
+			<label class="mascota" for="itachi">
+					<img src="./assets/image/itachi.png" alt="">
+					<p>Itachi</p>
+			</label> <br>
+			
+			<input type="radio" name="mascota" id="hidan" onclick="hidanVoice.play()">
+			<label class="mascota" for="hidan">
+					<img src="./assets/image/hidan.png" alt="">
+					<p>Hidan</p>
+			</label> <br> <br>
+	
+		</div>
+		
+		<button id="section_select-player" class="section_btn-select--player">Continuar<span class="select_player-right--arrow"></span></button>
+
+	</section>
+
+	<section id="ataques">
+
+		<h1 class="title"></h1>
+
+		<h2>Elige tu ataque</h2>
+		
+		<div class="section-btn">
+			<button id="section_button-air" class="btn-ataques" disabled>Rassengan</button>
+			<button id="section_button-water" class="btn-ataques" disabled>Pistola de agua</button>
+			<button id="section_button-fire" class="btn-ataques" disabled>Gran bola de fuego</button>
+			<button id="section_button-ray" class="btn-ataques" disabled>Chidori</button>
+			<button id="section_button-land" class="btn-ataques" disabled>Destrucción de la Tierra</button>
+		</div>
+
+		<div>
+			<div id="messages">
+				<p id="resultado">Good lucked</p>
+				
+				<section id="reset">
+					<button id="section_btn-reset">Reiniciar</button>
+					
+				</section>
+			</div>
+		</div>
+
+		<div class="combate">
+			<div class="combate_ataque-jugador">
+				<p id="life-player">3</p>
+				<p id="player-selected"></p> 
+				<div id="ataque-jugador"></div>
+			</div>
+			
+			<div class="combate_ataque-enemigo">
+				<p id="life-enemy">3</p>
+				<p id="player-enemy-select"></p>
+				<div id="ataque-enemigo"></div>
+			</div>
+			
+		</div>
+	</section>
+</body>
+</html>
