@@ -1,0 +1,65 @@
+
+#select_player{
+    min-width: 310px;
+    height: auto;
+}
+.title{
+    margin: auto;
+    width: 280px;
+    height: 120px;
+}
+.player{
+    justify-content: space-between;
+    width: 90px;
+    height: 150px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+}
+.player label{
+    margin: auto;
+    scroll-snap-align: center;
+    height: 150px;
+}
+.player label img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+input:checked + label{
+    background: none;
+    height: 110px;
+    width: 100px;
+}
+.section_btn-select--player{
+    margin: 0;
+}
+
+h2{
+    font-size: 18px;
+}
+.section-btn{
+    margin: 2px;
+    width: 300px;
+}
+.btn-ataques{
+    margin: 2px 5px;
+    height: 40px;
+    width: 80px;
+}
+
+.combate{
+    margin: auto;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 190px;
+    gap: 5px;
+}
+#messages{
+    
+    width: 110px;
+
+}
+#resultado{
+    font-size: 15px;
+}

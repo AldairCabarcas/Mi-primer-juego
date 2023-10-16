@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="./assets/image/icon.png" type="image/x-icon">
 	<link rel="stylesheet" href="codigo.css">
+	<link rel="stylesheet" href="mobile.css" media="(max-width: 760px)">
 	<script src="./codigo.js"></script>
 	<title>Akatsuki game</title>
 </head>
@@ -18,37 +19,38 @@
 		<br><br>
 
 		<div class="player">
-			<input type="radio" name="mascota" id="deidara" onclick="deidaraVoice.play()">
-			<label class="mascota" for="deidara">
-					<img src="./assets/image/deidara.png" alt="">
-					<p>Deidara</p>
-			</label> <br>
 
+			<input type="radio" name="personaje" id="deidara" onclick="deidaraVoice.play()">
+			<label class="personaje" for="deidara">
+				<img src="./assets/image/deidara.png" alt="">
+				<p>Deidara</p>
+			</label> 
+			
+
+			<input type="radio" name="personaje" id="pain" onclick="painVoice.play()">
+			<label class="personaje" for="pain">
+				<img src="./assets/image/pain.png" alt="Pain" >
+				<p>Pain</p>
+			</label> 
+			
 	
-			<input type="radio" name="mascota" id="pain" onclick="painVoice.play()">
-			<label class="mascota" for="pain">
-					<img src="./assets/image/pain.png" alt="Pain" >
-					<p>Pain</p>
-			</label> <br>
-	
-			<input type="radio" name="mascota" id="konan" onclick="konanVoice.play()">
-			<label class="mascota" for="konan">
+			<input type="radio" name="personaje" id="konan" onclick="konanVoice.play()">
+			<label class="personaje" for="konan">
 					<img src="./assets/image/konan.png" alt="">
 					<p>Konan</p>
 			</label> 
-			<br>
 			
-			<input type="radio" name="mascota" id="itachi" onclick="itachiVoice.play()">
-			<label class="mascota" for="itachi">
+			<input type="radio" name="personaje" id="itachi" onclick="itachiVoice.play()">
+			<label class="personaje" for="itachi">
 					<img src="./assets/image/itachi.png" alt="">
 					<p>Itachi</p>
-			</label> <br>
+			</label>
 			
-			<input type="radio" name="mascota" id="hidan" onclick="hidanVoice.play()">
-			<label class="mascota" for="hidan">
+			<input type="radio" name="personaje" id="hidan" onclick="hidanVoice.play()">
+			<label class="personaje" for="hidan">
 					<img src="./assets/image/hidan.png" alt="">
 					<p>Hidan</p>
-			</label> <br> <br>
+			</label>
 	
 		</div>
 		
