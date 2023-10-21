@@ -1,6 +1,38 @@
+const sectionSelectAttack = document.getElementById("ataques")
+const sectionReset = document.getElementById("reset")
+const seleccionarPersonajeJugador = document.getElementById("section_select-player")
+const reinicar = document.getElementById("section_btn-reset")
+
+const botonAgua = document.getElementById("section_button-water")
+const botonFuego = document.getElementById("section_button-fire")
+const botonRayo = document.getElementById("section_button-ray")
+const botonTierra = document.getElementById("section_button-land")
+const botonAire = document.getElementById("section_button-air")
+
+const sectionChoosePlayer = document.getElementById("select_player")
+const personajeSeleccionado = document.getElementById("player-selected")
+
+const personajeEnemigoSeleccionado = document.getElementById("player-enemy-select")
+
+const vidaJugador = document.getElementById("life-player")
+const vidaEnemigo = document.getElementById("life-enemy")
+
+const sectionMensaje = document.getElementById("resultado")
+const ataquesDelJugador = document.getElementById("ataque-jugador")
+const ataquesDelEnemigo = document.getElementById("ataque-enemigo")
+const mostrarPersojanes = document.getElementById('contenedor-personajes')
+
 let personajeJugador
 let personajeEnemigo
 
+let inputDeidara 
+let inputPain 
+let inputKonan 
+let inputItachi
+let inputHidan
+
+let akatsukis = []
+let personajeElegir
 let ataqueJugador 
 let ataqueEnemigo
 let vidasJugador = 3
@@ -9,6 +41,61 @@ let resultado
 
 let victorias = 0
 let derrotas = 0
+
+class Akatsuki{
+    constructor(nombre, foto, vida, voces){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+        this.voces = voces
+        this.ataques = []
+    }
+}
+
+let deidara = new Akatsuki('Deidara', './assets/image/deidara.png', 5, "audio/deidara_voice.mp3")
+let pain = new Akatsuki('Pain', './assets/image/pain.png', 5, "audio/pain_voice.mp3")
+let konan = new Akatsuki('Konan', './assets/image/konan.png', 5, "audio/konan_voice.mp3")
+let itachi = new Akatsuki('Itachi', './assets/image/itachi.png', 5, "audio/itachi_voice.mp3")
+let hidan = new Akatsuki('Hidan', './assets/image/hidan.png', 5, "audio/hidan_voice.mp3")
+
+deidara.ataques.push(
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+)
+pain.ataques.push(
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+)
+konan.ataques.push(
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+)
+itachi.ataques.push(
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+)
+hidan.ataques.push(
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+    { nombre: "destrucción de la tierra", id: 'section_button-land'},
+)
+
+akatsukis.push(deidara,pain,konan,itachi,hidan)
+
 // Voces de personajes seleccionado
 let deidaraVoice = new Audio();
 deidaraVoice.src = "audio/deidara_voice.mp3"
@@ -25,77 +112,70 @@ itachiVoice.src = "audio/itachi_voice.mp3"
 let hidanVoice = new Audio();
 hidanVoice.src = "audio/hidan_voice.mp3"
 
+
 function iniciarJuego() {
-    let sectionSelectAttack = document.getElementById("ataques")
-    sectionSelectAttack.style.display = "none"
+    
+    sectionSelectAttack.style.display = 'none'
 
-    let sectionReset = document.getElementById("reset")
-        sectionReset.style.display = "none"
+    akatsukis.forEach((Akatsuki) => {
+        personajeElegir = `
+        <input type="radio" name="personaje" id=${Akatsuki.nombre} onclick= />
+			<label class="personaje" for=${Akatsuki.nombre}>
+				<img src=${Akatsuki.foto} alt=${Akatsuki.nombre}>
+				<p>${Akatsuki.nombre}</p>
+			</label>
+        `
+        mostrarPersojanes.innerHTML += personajeElegir
 
-    let seleccionarPersonajeJugador = document.getElementById("section_select-player")
+         inputDeidara = document.getElementById("Deidara")
+         inputPain = document.getElementById("Pain")
+         inputKonan = document.getElementById("Konan")
+         inputItachi = document.getElementById("Itachi")
+         inputHidan = document.getElementById("Hidan")
+
+    })
+    
+    sectionReset.style.display = "none"
+    
     seleccionarPersonajeJugador.addEventListener("click", seleccionarPersonaje)
 
-    let reinicar = document.getElementById("section_btn-reset")
     reinicar.addEventListener("click", reiniciarJuego)
 
     function habilitarBtn() {
 
-    let botonAgua = document.getElementById("section_button-water")
     botonAgua.addEventListener("click", ataqueAgua)
         botonAgua.disabled = false
-
-    let botonFuego = document.getElementById("section_button-fire")
     botonFuego.addEventListener("click", ataqueFuego)
         botonFuego.disabled = false
-
-    let botonRayo = document.getElementById("section_button-ray")
     botonRayo.addEventListener("click", ataqueRayo)
         botonRayo.disabled = false
-
-    botonTierra = document.getElementById("section_button-land")
     botonTierra.addEventListener("click", ataqueTierra)
         botonTierra.disabled = false
-
-    let botonAire = document.getElementById("section_button-air")
     botonAire.addEventListener("click", ataqueAire)
         botonAire.disabled = false
     }
 
     function seleccionarPersonaje() {
-        let sectionChoosePlayer = document.getElementById("select_player")
+        
         sectionChoosePlayer.style.display = "none"
-
-        let sectionSelectAttack = document.getElementById("ataques")
         sectionSelectAttack.style.display = "flex"
 
         let start = 1
-        let inputDeidara = document.getElementById("deidara")
-        inputDeidara.disabled = true
-        let inputPain = document.getElementById("pain")
-        inputPain.disabled = true
-        let inputKonan = document.getElementById("konan")
-        inputKonan.disabled = true
-        let inputItachi = document.getElementById("itachi")
-        inputItachi.disabled = true
-        let inputHidan = document.getElementById("hidan")
-        inputHidan.disabled = true
-        let personajeSeleccionado = document.getElementById("player-selected")
-
+        
         if (inputDeidara.checked) {
-            personajeSeleccionado.innerHTML = "Deidara"
+            personajeSeleccionado.innerHTML = inputDeidara.id
             personajeJugador = "Deidara"
         } else if (inputPain.checked) {
-            personajeSeleccionado.innerHTML = "Pain"
+            personajeSeleccionado.innerHTML = inputPain.id
             personajeJugador = "Pain"
         } else if (inputKonan.checked) {
-            personajeSeleccionado.innerHTML = "Konan"
+            personajeSeleccionado.innerHTML = inputKonan.id
             personajeJugador = "Konan"
         } else if(inputItachi.checked) {
-            personajeSeleccionado.innerHTML = "Itachi"
+            personajeSeleccionado.innerHTML = inputItachi.id
             personajeJugador = "Itachi"
         } else if (inputHidan.checked) {
-            personajeSeleccionado.innerHTML = "Hidan"
-            personajeJugador = "Hidan"
+            personajeSeleccionado.innerHTML = inputHidan.id
         } else {
         
             alert("Debes seleccionar un personaje.")
@@ -103,8 +183,8 @@ function iniciarJuego() {
             reiniciarJuego()
         }
 
-        if (start == 1) {
-        seleccionarPersonajeEnemigo ()
+        if (start == 1){
+        seleccionarPersonajeEnemigo()
         }
 
         if (start == 0){
@@ -115,8 +195,7 @@ function iniciarJuego() {
     function seleccionarPersonajeEnemigo() {
 
         let personajeAleatorio = aleatoria(1,5)
-        let personajeEnemigoSeleccionado = document.getElementById("player-enemy-select")
-
+        
         if(personajeAleatorio == 1) {
             personajeEnemigoSeleccionado.innerHTML = "Deidara"
             personajeEnemigo = "Deidara"
@@ -178,8 +257,6 @@ function iniciarJuego() {
     }
 
     function combate (){
-        let vidaJugador = document.getElementById("life-player")
-        let vidaEnemigo = document.getElementById("life-enemy")
 
         if (ataqueJugador == ataqueEnemigo){
             resultado = "¡EMPATE!"
@@ -220,9 +297,6 @@ function iniciarJuego() {
     } 
 
     function crearMensaje(){
-        let sectionMensaje = document.getElementById("resultado")
-        let ataquesDelJugador = document.getElementById("ataque-jugador")
-        let ataquesDelEnemigo = document.getElementById("ataque-enemigo")
 
         let nuevoAtaqueJugador = document.createElement('p')
         let nuevoAtaqueEnemigo = document.createElement('p')
@@ -238,31 +312,18 @@ function iniciarJuego() {
     }
 
     function crearMensajeFinal(resultadoFinal){
-        let sectionReset = document.getElementById("reset")
+        
         sectionReset.style.display = "block"
-
-        let sectionMensaje = document.getElementById("resultado")
-
+        
         sectionMensaje.innerHTML = resultadoFinal
 
-
         // desactivar botones de ataque al quedarse sin vida.
-
-        let botonAgua = document.getElementById("section_button-water")
+        
         botonAgua.disabled = true
-
-        let botonFuego = document.getElementById("section_button-fire")
-            botonFuego.disabled = true
-
-        let botonRayo = document.getElementById("section_button-ray")
-            botonRayo.disabled = true
-
-        botonTierra = document.getElementById("section_button-land")
-            botonTierra.disabled = true
-
-        let botonAire = document.getElementById("section_button-air")
-            botonAire.disabled = true
-
+        botonFuego.disabled = true
+        botonRayo.disabled = true
+        botonTierra.disabled = true
+        botonAire.disabled = true
     }
 
     function reiniciarJuego(){

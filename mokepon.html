@@ -6,52 +6,19 @@
 	<link rel="shortcut icon" href="./assets/image/icon.png" type="image/x-icon">
 	<link rel="stylesheet" href="codigo.css">
 	<link rel="stylesheet" href="mobile.css" media="(max-width: 760px)">
-	<script src="./codigo.js"></script>
 	<title>Akatsuki game</title>
 </head>
 <body></body>
 	
-	<section id="select_player">
+	<section id="select_player"contenedor-personajes>
 
 		<h1 class="title"></h1>
 
 		<h2 class="subtitle">Elige tu personaje</h2>
 		<br><br>
 
-		<div class="player">
+		<div id="contenedor-personajes" class="player">
 
-			<input type="radio" name="personaje" id="deidara" onclick="deidaraVoice.play()">
-			<label class="personaje" for="deidara">
-				<img src="./assets/image/deidara.png" alt="">
-				<p>Deidara</p>
-			</label> 
-			
-
-			<input type="radio" name="personaje" id="pain" onclick="painVoice.play()">
-			<label class="personaje" for="pain">
-				<img src="./assets/image/pain.png" alt="Pain" >
-				<p>Pain</p>
-			</label> 
-			
-	
-			<input type="radio" name="personaje" id="konan" onclick="konanVoice.play()">
-			<label class="personaje" for="konan">
-					<img src="./assets/image/konan.png" alt="">
-					<p>Konan</p>
-			</label> 
-			
-			<input type="radio" name="personaje" id="itachi" onclick="itachiVoice.play()">
-			<label class="personaje" for="itachi">
-					<img src="./assets/image/itachi.png" alt="">
-					<p>Itachi</p>
-			</label>
-			
-			<input type="radio" name="personaje" id="hidan" onclick="hidanVoice.play()">
-			<label class="personaje" for="hidan">
-					<img src="./assets/image/hidan.png" alt="">
-					<p>Hidan</p>
-			</label>
-	
 		</div>
 		
 		<button id="section_select-player" class="section_btn-select--player">Continuar<span class="select_player-right--arrow"></span></button>
@@ -98,5 +65,8 @@
 			
 		</div>
 	</section>
+
+	<script src="./codigo.js"></script>
+
 </body>
 </html>
