@@ -52,11 +52,27 @@ class Akatsuki{
     }
 }
 
-let deidara = new Akatsuki('Deidara', './assets/image/deidara.png', 5, "audio/deidara_voice.mp3")
-let pain = new Akatsuki('Pain', './assets/image/pain.png', 5, "audio/pain_voice.mp3")
-let konan = new Akatsuki('Konan', './assets/image/konan.png', 5, "audio/konan_voice.mp3")
-let itachi = new Akatsuki('Itachi', './assets/image/itachi.png', 5, "audio/itachi_voice.mp3")
-let hidan = new Akatsuki('Hidan', './assets/image/hidan.png', 5, "audio/hidan_voice.mp3")
+// Voces de personajes seleccionado
+let deidaraVoice = new Audio();
+deidaraVoice.src = "audio/deidara_voice.mp3"
+
+let painVoice = new Audio();
+painVoice.src = "audio/pain_voice.mp3"
+
+let konanVoice = new Audio();
+konanVoice.src = "audio/konan_voice.mp3"
+
+let itachiVoice = new Audio();
+itachiVoice.src = "audio/itachi_voice.mp3"
+
+let hidanVoice = new Audio();
+hidanVoice.src = "audio/hidan_voice.mp3"
+
+let deidara = new Akatsuki('Deidara', './assets/image/deidara.png', 5, 'deidaraVoice')
+let pain = new Akatsuki('Pain', './assets/image/pain.png', 5, 'painVoice')
+let konan = new Akatsuki('Konan', './assets/image/konan.png', 5, 'konanVoice')
+let itachi = new Akatsuki('Itachi', './assets/image/itachi.png', 5, 'itachiVoice')
+let hidan = new Akatsuki('Hidan', './assets/image/hidan.png', 5, 'hidanVoice')
 
 deidara.ataques.push(
     { nombre: "destrucción de la tierra", id: 'section_button-land'},
@@ -94,24 +110,7 @@ hidan.ataques.push(
     { nombre: "destrucción de la tierra", id: 'section_button-land'},
 )
 
-akatsukis.push(deidara,pain,konan,itachi,hidan)
-
-// Voces de personajes seleccionado
-let deidaraVoice = new Audio();
-deidaraVoice.src = "audio/deidara_voice.mp3"
-
-let painVoice = new Audio();
-painVoice.src = "audio/pain_voice.mp3"
-
-let konanVoice = new Audio();
-konanVoice.src = "audio/konan_voice.mp3"
-
-let itachiVoice = new Audio();
-itachiVoice.src = "audio/itachi_voice.mp3"
-
-let hidanVoice = new Audio();
-hidanVoice.src = "audio/hidan_voice.mp3"
-
+akatsukis.push(deidara,pain,konan,itachi,hidan);
 
 function iniciarJuego() {
     
@@ -119,7 +118,7 @@ function iniciarJuego() {
 
     akatsukis.forEach((Akatsuki) => {
         personajeElegir = `
-        <input type="radio" name="personaje" id=${Akatsuki.nombre} onclick= />
+        <input type="radio" name="personaje" id=${Akatsuki.nombre} onclick='${Akatsuki.voces}.play()' />
 			<label class="personaje" for=${Akatsuki.nombre}>
 				<img src=${Akatsuki.foto} alt=${Akatsuki.nombre}>
 				<p>${Akatsuki.nombre}</p>
